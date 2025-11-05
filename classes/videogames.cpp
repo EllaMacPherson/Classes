@@ -4,9 +4,10 @@
 
 using namespace std;
 
-videogames::videogames(){
-  cout<<"videogames constructor running"<<endl;
-  
+videogames::videogames(int inYear, const char* inTitle, float inRating, const char* inPublisher):parent(int inYear, const char* inTitle){
+  //assign variables to rating and publisher
+  rating = inRating;
+  strycpy(inPublisher,publisher);
 }
 
 float videogames::getRating(){

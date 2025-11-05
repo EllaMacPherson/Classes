@@ -4,9 +4,9 @@
 
 using namespace std;
 
-parent::parent(){
-  cout<<"#parent constructor is runnningggg"<<endl;
-  cin>>year;
+parent::parent(int inYear, const char* inTitle){
+  year = inYear;
+  title = inTitle
 }
 
 int parent::getYear(){
