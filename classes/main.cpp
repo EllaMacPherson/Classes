@@ -5,7 +5,7 @@
 #include "music.h"
 #include "movies.h"
 
-//OKAY FILES ALL COMPLIE BEAUTIULLY!! NOW TEST ACCESSS AND START THINKING ABOUT ALL THAT FUN STUFF COMMIT AT BEGINNING OF NEXT CLASS!!!
+//OKAY everything compiles and variables collection and assignment works. make sure variables are like fully cleared. like add multiple movies in a row and make sure its still saving old + saving new as a seperate struct. and then work through search.
 
 using namespace std;
 void Add(vector<parent*>& list);
@@ -47,6 +47,7 @@ void Add(vector<parent*>& list){
   char mediatype[15];
   cout<<"What type of media would you like to add? (videogames, movie, music)"<<endl;
   cin.get(mediatype, 14);
+  cin.ignore();
   if(strcmp(mediatype, "videogames") == 0){
     char inTitle[50];
     int inYear = 0;
@@ -57,17 +58,79 @@ void Add(vector<parent*>& list){
     cin.ignore();
     cout<<"Year published?"<<endl;
     cin>>inYear;
+    cin.ignore();
     cout<<"Rating?"<<endl;
     cin>>inRating;
     cin.ignore();
-    cout<<"Publisher"<<endl;
+    cout<<"Publisher?"<<endl;
     cin.get(inPublisher, 49);
     cin.ignore();
     
     videogames* v = new videogames(inYear, inTitle, inRating, inPublisher);
     list.push_back(v);
+    
+    cout<<"Successfully added: "<<endl;
+    cout<<"Title: "<< v->getTitle()<<" Year: "<< v->getYear()<<" Rating: "<<v->getRating()
+	<<" Publisher: "<<v->getPublisher()<<endl;
   }
+  if(strcmp(mediatype, "music") == 0){
+    char inTitle[50];
+    int inYear = 0;
+    int inDuration = 0;
+    char inArtist[50];
+    char inPublisher[50];
+    cout<<"Title of music?"<<endl;
+    cin.get(inTitle, 49);
+    cin.ignore();
+    cout<<"Year published?"<<endl;
+    cin>>inYear;
+    cin.ignore();
+    cout<<"Artist?"<<endl;
+    cin.get(inArtist, 49);
+    cin.ignore();
+    cout<<"Duration?"<<endl;
+    cin>>inDuration;
+    cin.ignore();
+    cout<<"Publisher?"<<endl;
+    cin.get(inPublisher, 49);
+    cin.ignore();
+    music* m = new music(inYear, inTitle, inDuration, inArtist, inPublisher);
+    list.push_back(m);
 
+        
+    cout<<"Successfully added: "<<endl;
+    cout<<"Title: "<< m->getTitle()<<" Year: "<< m->getYear()<<" Artist: "<<m->getArtist()
+	<<" Publisher: "<<m->getPublisher()<<endl;
+    }
+  if(strcmp(mediatype, "movie") == 0){
+    char inTitle[50];
+    int inYear = 0;
+    int inDuration = 0;
+    char inDirector[50];
+    float inRating = 0;
+    cout<<"Title of movie?"<<endl;
+    cin.get(inTitle, 49);
+    cin.ignore();
+    cout<<"Year published?"<<endl;
+    cin>>inYear;
+    cin.ignore();
+    cout<<"Rating?"<<endl;
+    cin>>inRating;
+    cin.ignore();
+    cout<<"Duration?"<<endl;
+    cin>>inDuration;
+    cin.ignore();
+    cout<<"Director?"<<endl;
+    cin.get(inDirector, 49);
+    cin.ignore();
+    movies* mo = new movies(inYear, inTitle, inDirector, inRating, inDuration);
+    list.push_back(mo);
+
+        
+    cout<<"Successfully added: "<<endl;
+    cout<<"Title: "<< mo->getTitle()<<" Year: "<< mo->getYear()<<" Rating: "<<mo->getRating()
+	<<" Duration: "<<mo->getDuration()<< " Director: "<<mo->getDirector()<<endl;
+    }
 }
 
 void Search(vector<parent*>& list){

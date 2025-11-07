@@ -4,15 +4,17 @@
 
 using namespace std;
 
-music::music(){
-  cout<<"music constructor running"<<endl;
+music::music(int inYear, char* inTitle, int inDuration, char* inArtist, char* inPublisher ):parent(inYear, inTitle){
+  duration = inDuration;
+  strcpy(inArtist, artist);
+  strcpy(inPublisher, publisher);
 }
 
-const char* music::getArtist(){
+char* music::getArtist(){
   return artist;
 }
 
-const char* music::getPublisher(){
+char* music::getPublisher(){
   return publisher;
 }
 

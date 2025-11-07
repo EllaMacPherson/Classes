@@ -4,15 +4,15 @@
 
 using namespace std;
 
-parent::parent(int inYear, const char* inTitle){
+parent::parent(int inYear, char* inTitle){
   year = inYear;
-  title = inTitle
+  strcpy(title, inTitle); 
 }
 
 int parent::getYear(){
   return year;
 }
 
-const char* parent::getTitle(){
+char* parent::getTitle(){
   return title;
 }

@@ -4,16 +4,16 @@
 
 using namespace std;
 
-videogames::videogames(int inYear, const char* inTitle, float inRating, const char* inPublisher):parent(int inYear, const char* inTitle){
+videogames::videogames(int inYear, char* inTitle, float inRating, char* inPublisher):parent(inYear, inTitle){
   //assign variables to rating and publisher
   rating = inRating;
-  strycpy(inPublisher,publisher);
+  strcpy(publisher, inPublisher);
 }
 
 float videogames::getRating(){
   return rating;
 }
 
-const char* videogames::getPublisher(){
+char* videogames::getPublisher(){
   return publisher;
 }

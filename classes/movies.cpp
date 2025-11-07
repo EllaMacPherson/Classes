@@ -4,12 +4,14 @@
 
 using namespace std;
 
-movies::movies(){
+movies::movies(int inYear, char* inTitle, char* inDirector, float inRating, int inDuration):parent(inYear, inTitle){
   cout<<"movies constructor running"<<endl;
-  
+  strcpy(inDirector, director);
+  duration = inDuration;
+  rating = inRating;
 }
 
-const char* movies::getDirector(){
+char* movies::getDirector(){
   return director;
 }
 
