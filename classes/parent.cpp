@@ -4,7 +4,7 @@
 
 using namespace std;
 
-parent::parent(int inYear, char* inTitle){
+virtual parent::parent(int inYear, char* inTitle){
   year = inYear;
   strcpy(title, inTitle); 
 }

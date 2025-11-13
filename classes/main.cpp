@@ -5,7 +5,7 @@
 #include "music.h"
 #include "movies.h"
 
-//OKAY everything compiles and variables collection and assignment works. make sure variables are like fully cleared. like add multiple movies in a row and make sure its still saving old + saving new as a seperate struct. and then work through search.
+//all media adding CORRECTLY!!! to the vector. now need to work on searching through. dont understand how to know what child at list[i] it is, and then how to print that? maybe its the casting thing. or virtual functions. i dont get it.
 
 using namespace std;
 void Add(vector<parent*>& list);
@@ -43,7 +43,7 @@ int main(){
   return 0;
 }
 
-void Add(vector<parent*>& list){
+void Add(vector<parent*>& list){ //only TITLE string works and musics PUBLISHER
   char mediatype[15];
   cout<<"What type of media would you like to add? (videogames, movie, music)"<<endl;
   cin.get(mediatype, 14);
@@ -104,9 +104,11 @@ void Add(vector<parent*>& list){
     }
   if(strcmp(mediatype, "movie") == 0){
     char inTitle[50];
+    inTitle[0] = '\0';
     int inYear = 0;
     int inDuration = 0;
     char inDirector[50];
+    inDirector[0] = '\0';
     float inRating = 0;
     cout<<"Title of movie?"<<endl;
     cin.get(inTitle, 49);
@@ -134,7 +136,23 @@ void Add(vector<parent*>& list){
 }
 
 void Search(vector<parent*>& list){
-  cout<<"Search"<<endl;
+  int inYear = 0;
+  cout<<"Enter the YEAR of the media you're looking for was published: "<<endl;
+  cin>>inYear;
+  cin.ignore();
+  cout<<"Search results: "<<endl;
+  for(int i = 0; i < list.size(); i++){
+    if(list[i]->getYear() == inYear){
+      parent* p = list[i];
+      //check what child class the parent class is at this 
+      if (videogames* v = dynamic_cast<videogames*>(p)) {
+	//is a videogame!
+	cout << "This is a VIDEOGAME" << endl;
+	cout << v->getPublisher() << endl;
+      }
+    }
+  }
+  
 }
 
 void Delete(vector<parent*>& list){

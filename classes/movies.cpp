@@ -5,8 +5,7 @@
 using namespace std;
 
 movies::movies(int inYear, char* inTitle, char* inDirector, float inRating, int inDuration):parent(inYear, inTitle){
-  cout<<"movies constructor running"<<endl;
-  strcpy(inDirector, director);
+  strcpy(director, inDirector);
   duration = inDuration;
   rating = inRating;
 }

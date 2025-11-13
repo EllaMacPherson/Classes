@@ -6,8 +6,8 @@ using namespace std;
 
 music::music(int inYear, char* inTitle, int inDuration, char* inArtist, char* inPublisher ):parent(inYear, inTitle){
   duration = inDuration;
-  strcpy(inArtist, artist);
-  strcpy(inPublisher, publisher);
+  strcpy(artist, inArtist);
+  strcpy(publisher, inPublisher);
 }
 
 char* music::getArtist(){
