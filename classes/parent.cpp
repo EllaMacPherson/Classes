@@ -4,9 +4,16 @@
 
 using namespace std;
 
-virtual parent::parent(int inYear, char* inTitle){
+//Parent cosntructer
+parent::parent(int inYear, char* inTitle){
   year = inYear;
-  strcpy(title, inTitle); 
+  title = new char[100];
+  strcpy(title, inTitle);
+  
+}
+
+parent::~parent(){
+  delete title;
 }
 
 int parent::getYear(){
@@ -15,4 +22,7 @@ int parent::getYear(){
 
 char* parent::getTitle(){
   return title;
+}
+
+void parent::print(){
 }
